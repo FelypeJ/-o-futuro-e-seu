@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d19">
+  <meta name="description" content="Uma aventura interativa sobre inteligência artificial, escolhas e responsabilidade.">
+  <title>O Futuro é Seu | Uma experiência interativa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="O Futuro é Seu, voltar ao início">
+      <span class="brand-mark" aria-hidden="true">F<span>.</span></span>
+      <span>FUTURO<span class="brand-muted">/IA</span></span>
+    </a>
+    <div class="top-status"><span class="status-dot"></span> EXPERIÊNCIA INTERATIVA <span class="top-divider">/</span> 2049</div>
+  </header>
+
+  <main class="shell">
+    <section class="view intro" id="intro">
+      <div class="intro-copy-block">
+        <div class="eyebrow"><span></span> ARQUIVO 2049 · SIMULAÇÃO 01</div>
+        <p class="kicker">O amanhã não está escrito.</p>
+        <h1>O futuro<br><em>é seu.</em></h1>
+        <p class="intro-description">Uma inteligência artificial chamada Íris aprendeu a conversar, criar e tomar decisões. Agora, a humanidade precisa escolher o que fazer com esse poder.</p>
+        <div class="intro-facts">
+          <div><span class="fact-icon">⌁</span><span><small>SUA MISSÃO</small><strong>Escolher o próximo capítulo</strong></span></div>
+          <div><span class="fact-icon">◷</span><span><small>DURAÇÃO</small><strong>5 a 7 minutos</strong></span></div>
+          <div><span class="fact-icon">◇</span><span><small>CAMINHOS</small><strong>7 decisões importantes</strong></span></div>
+        </div>
+        <button class="button button-primary" id="start">Iniciar experiência <span aria-hidden="true">↗</span></button>
+        <p class="microcopy">Não existe resposta perfeita. Existe consequência.</p>
+      </div>
+      <div class="iris-visual" aria-hidden="true">
+        <div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div>
+        <div class="visual-ring"></div>
+        <div class="iris-core">
+          <svg viewBox="0 0 120 120" role="presentation">
+            <defs><linearGradient id="irisGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8af5e8"/><stop offset="1" stop-color="#a99aff"/></linearGradient></defs>
+            <path d="M60 12 99 35v50l-39 23L21 85V35z" fill="none" stroke="url(#irisGradient)" stroke-width="1.5" opacity=".8"/>
+            <circle cx="60" cy="60" r="24" fill="#74e6df" opacity=".08"/>
+            <circle cx="60" cy="60" r="14" fill="none" stroke="url(#irisGradient)" stroke-width="2"/>
+            <circle cx="60" cy="60" r="5" fill="#9fffee"/>
+            <path d="M60 6v18M60 96v18M6 60h18M96 60h18" stroke="#74e6df" stroke-width="1" opacity=".6"/>
+          </svg>
+          <span>ÍRIS</span>
+        </div>
+        <div class="orbit-tag tag-top">SISTEMA ATIVO</div>
+        <div class="orbit-tag tag-bottom">CONSCIÊNCIA EM ANÁLISE</div>
+      </div>
+    </section>
+
+    <section class="view game" id="game" hidden>
+      <div class="game-topline">
+        <div><div class="eyebrow"><span></span> SIMULAÇÃO EM ANDAMENTO</div><h2 id="chapter">O primeiro contato</h2></div>
+        <div class="progress-panel"><div class="progress-caption"><span>PROGRESSO</span><strong id="progress-label">01 / 07</strong></div><div class="progress-track" role="progressbar" aria-label="Progresso da história" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progress-track"><span id="progress"></span></div></div>
+      </div>
+      <div class="story-card">
+        <div class="story-meta"><span><i class="status-dot"></i> CANAL SEGURO</span><span id="story-date">05 NOV 2049</span></div>
+        <p id="question" aria-live="polite"></p>
+      </div>
+      <div class="choice-heading"><span>01</span><div><strong>Qual será sua decisão?</strong><small>Selecione uma alternativa para continuar.</small></div></div>
+      <div class="choices" id="choices"></div>
+      <p class="microcopy game-hint">Sua escolha será registrada e terá uma consequência na história.</p>
+    </section>
+
+    <section class="view consequence" id="consequence" hidden aria-live="polite">
+      <div class="eyebrow"><span></span> CONSEQUÊNCIA REGISTRADA</div>
+      <div class="consequence-symbol" aria-hidden="true">↳</div>
+      <p class="kicker">Uma escolha nunca termina no clique.</p>
+      <h2 id="consequence-title">O mundo reage.</h2>
+      <p class="consequence-main" id="consequence-main"></p>
+      <div class="consequence-note"><span class="note-icon">✳</span><p id="consequence-detail"></p></div>
+      <div class="consequence-footer"><span id="consequence-step">DECISÃO 01 DE 07</span><button class="button button-primary" id="continue">Continuar <span aria-hidden="true">→</span></button></div>
+    </section>
+
+    <section class="view result" id="result" hidden>
+      <div class="eyebrow"><span></span> SIMULAÇÃO CONCLUÍDA</div>
+      <div class="result-heading"><div class="result-symbol" aria-hidden="true">✳</div><div><p class="kicker">O capítulo foi escrito.</p><h2>O futuro tomou forma.</h2></div></div>
+      <p class="result-copy" id="summary"></p>
+      <article class="ending-card">
+        <div class="ending-label"><span class="status-dot"></span> SEU DESFECHO</div>
+        <h3 id="ending-title"></h3><p id="ending-text"></p>
+        <div class="ending-stamp">RELATÓRIO ÍRIS <span>2049</span></div>
+      </article>
+
+      <section class="impact-section" aria-labelledby="impact-title">
+        <div class="section-eyebrow">LEITURA DO SEU CAMINHO</div>
+        <h3 id="impact-title">O que suas decisões priorizaram?</h3>
+        <p class="section-description">As barras representam tendências das suas escolhas nesta simulação, não uma avaliação de certo ou errado.</p>
+        <div class="score-list" id="score-list"></div>
+      </section>
+
+      <section class="reflection-card">
+        <div class="reflection-icon" aria-hidden="true">◎</div>
+        <div><span class="section-eyebrow">A REFLEXÃO QUE FICA</span><h3>Quem deve decidir o futuro?</h3><p id="impact-message">A inteligência artificial pode ampliar nossas capacidades, mas também exige responsabilidade, transparência e participação humana.</p></div>
+      </section>
+
+      <section class="history-section">
+        <div class="history-heading"><div><span class="section-eyebrow">MEMÓRIA DA SIMULAÇÃO</span><h3>Registro das suas escolhas</h3></div><span class="history-count" id="log-count"></span></div>
+        <div id="log" class="history-list"></div>
+      </section>
+      <div class="result-actions"><button class="button button-primary" id="restart">Jogar novamente <span aria-hidden="true">↻</span></button><button class="button button-secondary" id="copy">Copiar meu resultado <span aria-hidden="true">⧉</span></button></div>
+      <p class="copy-feedback" id="feedback" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer><span>UM PROJETO SOBRE TECNOLOGIA, ÉTICA E ESCOLHAS</span><span>DESENVOLVIDO POR FELYPE JUSTINO · 2026</span></footer>
+</body>
+</html>
